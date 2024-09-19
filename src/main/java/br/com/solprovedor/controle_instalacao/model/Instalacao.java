@@ -1,5 +1,6 @@
 package br.com.solprovedor.controle_instalacao.model;
 
+import br.com.solprovedor.controle_instalacao.repository.InstalacaoRepository;
 import br.com.solprovedor.controle_instalacao.service.InstalacaoService;
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,7 +31,16 @@ public class Instalacao {
     @Transient
     private InstalacaoService service;
 
-    public void cadastrar() {
 
+    public Instalacao(int codigoCliente, int cto, int portaCliente, String olt, String equipe, String servico, int codigoAntigo, String localidade) {
+        this.codigo = codigoCliente;
+        this.cto = cto;
+        this.porta = portaCliente;
+        this.olt = olt;
+        this.tecnico = equipe;
+        this.servico = Servico.fromString(servico);
+        this.codigoAntigo = codigoAntigo;
+        this.localidade = localidade;
     }
+
 }
